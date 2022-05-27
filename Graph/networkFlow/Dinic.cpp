@@ -30,14 +30,14 @@ void add(int u, int v, int ww)
     head[u] = cnt;
 }
 
-// ¹¹½¨·Ö²ãÍ¼
+// æž„å»ºåˆ†å±‚å›¾
 bool bfs()
 {
     for (int i = 0; i <= n; i++)
     {
         vis[i] = 0;
         dep[i] = inf;
-        cur[i] = head[i]; // curÏàµ±ÓÚhead
+        cur[i] = head[i]; // curç›¸å½“äºŽhead
     }
 
     vis[s] = 1;
@@ -59,13 +59,13 @@ bool bfs()
         }
     }
     if (dep[t] == dep[0])
-        return 0; // ÎÞ·¨µ½´ï t µã
+        return 0; // æ— æ³•åˆ°è¾¾ t ç‚¹
     return 1;
 }
 
 //
 LL dfs(int x, int minn)
-{ // minn: Ä¿Ç°ËùÓÐ»¡µÄ×îÐ¡²ÐÁ¿
+{ // minn: ç›®å‰æ‰€æœ‰å¼§çš„æœ€å°æ®‹é‡
     if (x == t)
     {
         ans += minn;
@@ -74,7 +74,7 @@ LL dfs(int x, int minn)
     LL use = 0;
     for (int i = cur[x]; i; i = nxt[i])
     {
-        cur[x] = i; // ËÑ¹ýÒ»Ìõ±ßºó£¬È·±£ÕâÌõ±ßÎÞ·¨Ôö¹ã£¬Ö±½ÓËÑË÷ÏÂÒ»ÌõÓÐÓÃ±ß
+        cur[x] = i; // æœè¿‡ä¸€æ¡è¾¹åŽï¼Œç¡®ä¿è¿™æ¡è¾¹æ— æ³•å¢žå¹¿ï¼Œç›´æŽ¥æœç´¢ä¸‹ä¸€æ¡æœ‰ç”¨è¾¹
         if (w[i] && dep[to[i]] == dep[x] + 1)
         {
             LL nex = dfs(to[i], min(minn - use, w[i])); //

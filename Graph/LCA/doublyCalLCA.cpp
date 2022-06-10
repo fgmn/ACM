@@ -112,8 +112,9 @@ signed main()
 
 		dfs(root, 0);
 
-		//		for(int i=1;i<4;i++) cout<<dis[i]<<' ';
-		//		cout<<'\n';
+		/*for (int i = 1; i < 4; i++)
+			cout << dis[i] << ' ';
+		cout << '\n';*/
 
 		while (m--)
 		{

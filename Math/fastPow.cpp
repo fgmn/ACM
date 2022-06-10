@@ -3,25 +3,31 @@ using namespace std;
 
 typedef long long ll;
 
-//分治快速幂 
-ll ppow(ll x, ll y, ll mod) {
+// 鍒嗘不蹇�熷箓
+
+ll qpow(ll x, ll y, ll mod) {
 	ll res = 1;
-	for(x %= mod; y; y >>= 1, x = x * x % mod)
+	x %= mod;
+	while (y) {
 		if (y & 1) res = res * x % mod;
+		x = x * x % mod;
+		y >>= 1;
+	}
 	return res;
 }
 
-//ll ppow(ll x,ll y,ll mod){
-//	ll res=1;
-//	for(x%=mod;y;y--) res=res*x%mod;
-//	return res;
-//}
+/*
+ll qpow(ll x, ll y, ll mod)
+{
+	ll res = 1;
+	for (x %= mod; y; y >>= 1, x = x * x % mod)
+		if (y & 1)
+			res = res * x % mod;
+	return res;
+}
+*/
 
-int main() {
-	ll x=1070057505,y=1700078548;	//1e10
-//	cin>>x>>y;
-	ll ans=ppow(x,y,16);
-	cout<<ans<<endl;
-	 
+int main()
+{
 	return 0;
 }

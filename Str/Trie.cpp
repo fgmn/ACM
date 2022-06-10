@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//×ÖµäÊ÷£¨×Ö·û´®¼¯ºÏ£©
+// å­—å…¸æ ‘ï¼ˆå­—ç¬¦ä¸²é›†åˆï¼‰
 struct trie
 {
-	// child[now][x]±íÊ¾½ÚµãnowµÄµÚx¸ö¶ù×Ó
-	// flag[now]=1±íÊ¾½ÚµãnowÊÇÄ³¸ö×Ö·û´®µÄ½áÎ²
+	// child[now][x]è¡¨ç¤ºèŠ‚ç‚¹nowçš„ç¬¬xä¸ªå„¿å­
+	// flag[now]=1è¡¨ç¤ºèŠ‚ç‚¹nowæ˜¯æŸä¸ªå­—ç¬¦ä¸²çš„ç»“å°¾
 
 	static const int N = 1010, charset = 30;
 	int tot, root, child[N][charset], flag[N];
@@ -13,7 +13,7 @@ struct trie
 	trie()
 	{
 		memset(child, -1, sizeof child);
-		memset(flag, 0, sizeof flag); // 1¡¢²¹³ä¶Ôflag[]µÄ³õÊ¼»¯
+		memset(flag, 0, sizeof flag); // 1ã€è¡¥å……å¯¹flag[]çš„åˆå§‹åŒ–
 		root = tot = 0;
 	}
 
@@ -33,25 +33,23 @@ struct trie
 			if (child[now][x] == -1)
 			{
 				child[now][x] = ++tot;
-				//				flag[now]=0;
+				// flag[now] = 0;
 			}
 			now = child[now][x];
 		}
 		flag[now] = 1;
 	}
 
-	//²éÑ¯×ÖµäÊ÷ÊÇ·ñ´æÔÚÄ³¸öÍêÕûµÄ×Ö·û´®ÊÇstrµÄÇ°×º
+	// æŸ¥è¯¢å­—å…¸æ ‘æ˜¯å¦å­˜åœ¨æŸä¸ªå®Œæ•´çš„å­—ç¬¦ä¸²æ˜¯strçš„å‰ç¼€
 	bool query(string str)
 	{
 		int now = root;
 		for (int i = 0; i < (int)str.length(); i++)
 		{
 			int x = str[i] - 'a';
-			if (child[now][x] == -1)
-				return false;
-			now = child[now][x]; // 2¡¢ÈôÏÂÒ»½ÚµãÆ¥ÅäÁË£¬Ôò¿¼ÂÇÆäÊÇ·ñÎªÖÕµã
-			if (flag[now])
-				return true;
+			if (child[now][x] == -1) return false;
+			now = child[now][x]; // 2ã€è‹¥ä¸‹ä¸€èŠ‚ç‚¹åŒ¹é…äº†ï¼Œåˆ™è€ƒè™‘å…¶æ˜¯å¦ä¸ºç»ˆç‚¹
+			if (flag[now]) return true;
 		}
 		return false;
 	}
@@ -59,7 +57,7 @@ struct trie
 
 int main()
 {
-	trie t;
+	/*trie t;
 	t.insert("happy");
 	t.insert("happiness");
 	t.insert("happyyyyyyy");
@@ -69,7 +67,7 @@ int main()
 	cout << ((int)t.query("happ")) << endl;
 
 	for (int i = 0; i < 20; i++)
-		cout << i << ':' << t.flag[i] << endl;
+		cout << i << ':' << t.flag[i] << endl;*/
 
 	return 0;
 }

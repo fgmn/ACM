@@ -3,8 +3,8 @@ using namespace std;
 
 typedef long long ll;
 
-// Ã×ÀÕ-À­±öËØÐÔ¼ìÑé
-// ¶þ´ÎÊ£Óà
+// ç±³å‹’-æ‹‰å®¾ç´ æ€§æ£€éªŒ
+// äºŒæ¬¡å‰©ä½™
 // _int128
 
 ll qpow(ll a, ll n, ll p)
@@ -34,7 +34,7 @@ bool is_prime(ll x)
 	{
 		ll v = qpow(a, d, x);
 		if (v <= 1 || v == x - 1)
-			continue; // a^d=0,ËµÃ÷aÊÇxµÄ±¶Êý£»a^d= 1 or -1
+			continue; // a^d=0,è¯´æ˜Žaæ˜¯xçš„å€æ•°ï¼›a^d= 1 or -1
 
 		for (int i = 0; i < r; i++)
 		{

@@ -3,10 +3,10 @@ using namespace std;
 const int maxn = 2e5 + 10;
 typedef long long ll;
 
-int A[maxn], T[maxn]; // T[]Îª¸¨Öú¿Õ¼ä
+int A[maxn], T[maxn]; // T[]ä¸ºè¾…åŠ©ç©ºé—´
 bool vis[maxn], vis2[maxn];
 
-long long int cnt = 0; //ÄæĞò¶Ô¸öÊı
+long long int cnt = 0; // é€†åºå¯¹ä¸ªæ•°
 
 void merge_sort(int x, int y)
 {
@@ -49,7 +49,7 @@ int main()
 
 	ll ans = 0;
 
-	//ÏÈµ¥¶ÀÇóÒ»±éÏàÁÚÊıµÄÄæĞò¶Ô¸öÊı
+	// å…ˆå•ç‹¬æ±‚ä¸€éç›¸é‚»æ•°çš„é€†åºå¯¹ä¸ªæ•°
 	for (int i = 0; i < n; i++)
 	{
 		if (vis[A[i] + 1] && (!vis2[A[i]]) && (!vis2[A[i] + 1]))
@@ -64,7 +64,7 @@ int main()
 
 	merge_sort(0, n);
 	cnt -= ans;
-	//	cout<<ans<<endl;
+	//	cout << ans << endl;
 
 	printf("%lld\n", cnt);
 

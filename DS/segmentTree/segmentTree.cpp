@@ -111,7 +111,7 @@ void update(int now, int l, int r, int xl, int xr, int c)
 
 int main()
 {
-	n = 5;
+	/*n = 5;
 	a[1] = 1;
 	a[2] = 5;
 	a[3] = 4;
@@ -122,6 +122,7 @@ int main()
 	update(1, 1, n, 1, 4, 1);
 	check();
 	cout << query(1, 1, n, 2, 5) << endl;
-	check();
+	check();*/
+	
 	return 0;
 }

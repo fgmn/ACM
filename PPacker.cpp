@@ -4,7 +4,11 @@
 #include <fstream>
 using namespace std;
 
-// 处理文件层次结构(目录树)
+/* 
+TODO:
+1. 处理文件层次结构(目录树)
+2. 过滤cpp以外文件
+*/
 
 // 解析文件名
 string parseFilename(string path)

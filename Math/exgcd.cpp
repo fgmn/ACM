@@ -1,34 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// é€’å½’ï¼Œè¿”å›žä¸€ç»„è§£
 
-//µÝ¹é£¬·µ»ØÒ»×é½â
-
-int exgcd(int a,int b,int &x,int &y){
+int exgcd(int a, int b, int &x, int &y)
+{
 	int r;
-	if(!b){
-		x=1;
-		y=0;
+	if (!b)
+	{
+		x = 1;
+		y = 0;
 		return a;
 	}
-	else{
-		r=exgcd(b,a%b,x,y);
-		int t=x;
-		x=y;
-		y=t-(a/b)*y;
-		
+	else
+	{
+		r = exgcd(b, a % b, x, y);
+		int t = x;
+		x = y;
+		y = t - (a / b) * y;
 	}
 	return r;
-	//rÊµ¼ÊÊÇgcd? 
-} 
+	// rå®žé™…æ˜¯gcd?
+}
 
+int main()
+{
+	int x, y;
+	exgcd(17, 18, x, y);
+	cout << x << ' ' << y;
+	// ä»»æ„ç»™å®šä¸€ç»„åˆå€¼
 
-
-int main(){
-	int x,y;
-	exgcd(17,18,x,y);
-	cout<<x<<' '<<y;
-	//ÈÎÒâ¸ø¶¨Ò»×é³õÖµ
-	 
 	return 0;
 }

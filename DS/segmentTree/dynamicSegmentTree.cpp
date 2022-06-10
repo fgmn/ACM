@@ -13,11 +13,10 @@ struct node
 	int l, r, sum, f;
 } tree[mac * 50];
 
-int sz = 1; // 1Îª¸ù½Úµã
+int sz = 1; // 1ä¸ºæ ¹èŠ‚ç‚¹
 
 void pushdown(int l, int r, int rt)
 {
-
 	int mid = (l + r) >> 1;
 
 	if (l != r)
@@ -27,14 +26,14 @@ void pushdown(int l, int r, int rt)
 		if (!tree[rt].r)
 			tree[rt].r = ++sz;
 		if (tree[rt].f == 2)
-			tree[rs].sum = tree[ls].sum = 0; //×Ó½Úµã¸öÊý
+			tree[rs].sum = tree[ls].sum = 0; // å­èŠ‚ç‚¹ä¸ªæ•°
 		else
 		{
 			tree[ls].sum = mid - l + 1;
 			tree[rs].sum = r - mid;
 		}
 		tree[ls].f = tree[rt].f;
-		tree[rs].f = tree[rt].f; //ÀÁ±ê¼ÇÏÂ·Å
+		tree[rs].f = tree[rt].f; // æ‡’æ ‡è®°ä¸‹æ”¾
 	}
 	tree[rt].f = 0;
 }
@@ -42,7 +41,7 @@ void pushdown(int l, int r, int rt)
 void update(int l, int r, int &rt, int L, int R, int val)
 {
 	if (!rt)
-		rt = ++sz; //Ðéµã->Êµµã
+		rt = ++sz; // è™šç‚¹->å®žç‚¹
 
 	if (l >= L && r <= R)
 	{
@@ -56,7 +55,7 @@ void update(int l, int r, int &rt, int L, int R, int val)
 		return;
 	}
 
-	//ÒªÓÃÊ±½¨Á¢½Úµã
+	// è¦ç”¨æ—¶å»ºç«‹èŠ‚ç‚¹
 	if (tree[rt].f)
 		pushdown(l, r, rt);
 
@@ -73,8 +72,8 @@ void update(int l, int r, int &rt, int L, int R, int val)
 int main()
 {
 
-	//³¬Ê±
-	//	ios::sync_with_stdio(false);
+	// è¶…æ—¶
+	// ios::sync_with_stdio(false);
 
 	int n, q;
 

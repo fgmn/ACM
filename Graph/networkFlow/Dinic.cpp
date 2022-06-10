@@ -3,17 +3,17 @@
 using namespace std;
 typedef long long LL;
 
-// struct FastIO{
-//	template<typename Ty>
-//	FastIO& operator >> (Ty& in){
-//		in = 0;
-//		char ch = getchar();
-//		bool flag = 0;
-//		for (; ! isdigit(ch); ch = getchar()) (ch == '-' && (flag = 1));
-//		for (; isdigit(ch); ch = getchar()) in = (in * 10) + (ch ^ 48);
-//		return *this;
-//	}
-// } fin;
+/*struct FastIO{
+	template<typename Ty>
+	FastIO& operator >> (Ty& in){
+		in = 0;
+		char ch = getchar();
+		bool flag = 0;
+		for (; ! isdigit(ch); ch = getchar()) (ch == '-' && (flag = 1));
+		for (; isdigit(ch); ch = getchar()) in = (in * 10) + (ch ^ 48);
+		return *this;
+	}
+} fin;*/
 
 const int MaxN = 210, MaxM = 5e3 + 100, inf = 0x3fffffff;
 int n, m, s, t;

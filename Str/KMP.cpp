@@ -25,15 +25,15 @@ bool kmp(const string str, const string ptr)
 	int len1 = str.length();
 	int len2 = ptr.length();
 
-	int j = 0; // ptr[]µÄË÷Òý
+	int j = 0; // ptr[]çš„ç´¢å¼•
 
 	//	get_next(ptr, len2);
 
 	for (int i = 0; i < len1; ++i)
 	{
 
-		//ÈôÔÚptr[j]´¦Ê§Åä£¬¿ÉÒÔÄÃ³¤¶ÈÎªnextt[j-1]µÄÇ°×ºÌæ´úµ±Ç°µÄºó×º
-		//£¬ÈÃptr[nextt[j-1]]Õâ¸ö×Ö·û¶Ô×¼¸Õ¸ÕÊ§ÅäµÄÎ»ÖÃ
+		//è‹¥åœ¨ptr[j]å¤„å¤±é…ï¼Œå¯ä»¥æ‹¿é•¿åº¦ä¸ºnextt[j-1]çš„å‰ç¼€æ›¿ä»£å½“å‰çš„åŽç¼€
+		//ï¼Œè®©ptr[nextt[j-1]]è¿™ä¸ªå­—ç¬¦å¯¹å‡†åˆšåˆšå¤±é…çš„ä½ç½®
 
 		while (j && ptr[j] != str[i])
 			j = nextt[j - 1];
@@ -44,7 +44,7 @@ bool kmp(const string str, const string ptr)
 		if (j == len2)
 		{
 			// matched here
-			//			j=nextt[j-1];
+			// j = nextt[j - 1];
 			return true;
 		}
 	}
@@ -69,7 +69,7 @@ int main()
 		{
 			int cur = i;
 			m = "";
-			//½øÖÆ×ª»»
+			// è¿›åˆ¶è½¬æ¢
 			while (cur)
 			{
 				int temp = cur % k;
@@ -84,9 +84,8 @@ int main()
 			s += m;
 		}
 
-		//		if(kmp(s,t)){
-		if (s.find(t) != -1)
-		{ //ËÆºõÓÅÓÚkmp
+		// if(kmp(s,t)) {
+		if (s.find(t) != -1) { // ä¼¼ä¹Žä¼˜äºŽkmp
 			cout << "yes" << endl;
 			flag = true;
 			break;

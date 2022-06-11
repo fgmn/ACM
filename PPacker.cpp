@@ -7,7 +7,7 @@ using namespace std;
 /* 
 TODO:
 1. 处理文件层次结构(目录树)
-2. 过滤cpp以外文件
+2. 过滤cpp以外文件 fixed
 */
 
 // 解析文件名
@@ -22,6 +22,25 @@ string parseFilename(string path)
     }
     return path.substr(i + 1, sz - i - 5);
 }
+
+bool isCPP(string fn) {
+    // cout << fn << '\n';
+    int sz = fn.length();
+    string suffix;
+    for (int i = sz; ; i--) {
+        if (sz - i > 5) break;
+        if (fn[i] != '.') {
+            suffix = fn[i] + suffix;
+        }
+        else break;
+    }
+    cout << "suffix: " << suffix << '\n';
+    if (suffix.find("cpp") != string::npos) {
+        cout << "find!\n"; 
+        return true;
+    }
+    return false;
+} 
 
 // 获取文件绝对路径
 void getFiles(string path, vector<string> &files)
@@ -48,7 +67,8 @@ void getFiles(string path, vector<string> &files)
             // 如果不是,加入列表
             else
             {
-                files.push_back(p.assign(path).append("\\").append(fileinfo.name));
+                if (isCPP(fileinfo.name))
+                    files.push_back(p.assign(path).append("\\").append(fileinfo.name));
             }
         } while (_findnext(hFile, &fileinfo) == 0);
         // _findclose函数结束查找
@@ -78,7 +98,7 @@ void copy2OneObj(vector<string>& files, ofstream& f) {
 
 int main()
 {
-    string filePath = "D:\\study\\ACM\\ACM\\Graph"; // 自己设置目录
+    string filePath = "D:\\study\\ACM\\ACM"; // 自己设置目录
     vector<string> files;
 
     // 获取该路径下的所有文件
@@ -91,6 +111,6 @@ int main()
     }
 
     ofstream f;
-    f.open("5-27.txt");
+    f.open("6-10.txt");
     copy2OneObj(files, f);
 }
